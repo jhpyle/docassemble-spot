@@ -42,6 +42,7 @@ Only the first result is used for the `.result` and `.id` attributes.  If you
 want to inspect into the actual result returned by the API, you can find it 
 under `legal_issue._full_result`.
 
+[Spot API]: https://spot.suffolklitlab.org/
 [Configuration]: https://docassemble.org/docs/config.html
 [obtain an API key]: https://spot.suffolklitlab.org/user/new/
 [The Legal Innovation & Technology Lab]: https://suffolklitlab.org/
