@@ -10,10 +10,10 @@ class SpotResult(DAObject):
     def id(self):
       if self.result is None:
         return None
-      if 'id' not in self._full_result['labels'][0]:
+      if 'id' not in self._full_result['labels'][-1]:
         log('Spot API returned a result but it lacked an id')
         return None
-      return self._full_result['labels'][0]['id']
+      return self._full_result['labels'][-1]['id']
     @property
     def result(self):
         if hasattr(self, '_active_result') and hasattr(self, '_active_source') and self._active_source == self.source:
@@ -48,11 +48,11 @@ class SpotResult(DAObject):
         if success and ('labels' not in self._full_result or len(self._full_result['labels']) == 0):
             success = False
             log('Spot API returned no results')
-        if success and 'name' not in self._full_result['labels'][0]:
+        if success and 'name' not in self._full_result['labels'][-1]:
             success = False
             log('Spot API returned a result but it lacked a name')
         if success:
-            self._active_result = self._full_result['labels'][0]['name']
+            self._active_result = self._full_result['labels'][-1]['name']
         else:
             self._active_result = None
         return self._active_result
